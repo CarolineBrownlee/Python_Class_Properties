@@ -75,8 +75,9 @@ class Student:
         else:
             raise TypeError("Please enter an integer.")
 
+    # Change your class so that any objects created from it will be represented as strings in the following format.
     def __str__(self):
-        return f"{self.full_name}"
+        return f"{self.full_name} is {self.age} years old and is in cohort {self.cohort}."
 
 # Ensure that only the appropriate value can be assigned to each.
 
@@ -85,17 +86,9 @@ print(Caroline.first_name)
 Caroline.first_name = "Caroline"
 print(Caroline.first_name)
 Caroline.age = 41
+Caroline.cohort = 36
 print(Caroline.age)
 Caroline.last_name = "Brownlee"
 print(Caroline.full_name)
 
 print(Caroline)
-
-
-
-
-
-
-
-
-
