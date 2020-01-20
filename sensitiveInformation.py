@@ -20,25 +20,16 @@ class Patient:
     # The first three properties should be read-only.
     @property
     def social_security_number(self):
-        try:
-            return self.__social_security_number
-        except AttributeError:
-            return "Property Can't Be Changed."
-
+        return self.__social_security_number
+        
     @property
     def date_of_birth(self):
-        try:
-            return self.__date_of_birth
-        except AttributeError:
-            return f"{self.date_of_birth}"
+        return self.__date_of_birth
 
     @property
     def health_insurance_account_number(self):
-        try:
-            return self.__health_insurance_account_number
-        except AttributeError:
-            return "Property Can't Be Changed"
-
+        return self.__health_insurance_account_number
+      
     # First name and last name should not be exposed as properties at all, but instead expose a calculated property of full_name.
     @property
     def full_name(self):
@@ -47,10 +38,10 @@ class Patient:
     # Address should have a getter and setter.
     @property
     def address(self):
-        try: 
+        try:
             return self.__address
-        except AttributeError:
-            return f"{self.address}"
+        except AttributeError: 
+            return TypeError("This is not an address")
     
     @address.setter
     def address(self, address):
@@ -62,7 +53,7 @@ class Patient:
     def __str__(self):
         return f"{self.full_name} was born on {self.date_of_birth}. Her social security number is {self.social_security_number}, her insurance number is {self.health_insurance_account_number}, and her address is {self.address}."
 
-Caroline = Patient("Caroline", "Brownlee", "104 Doral Ln, Hendersonville, TN 37075", "Sept. 2, 1978", "555-555-5555", "IW55555")
+Caroline = Patient("Caroline", "Brownlee", "104 Doral Lane, Hendersonville, TN 37075", "Sept. 2, 1978", "555-555-5555", "IW55555")
 
 print(Caroline)
 
