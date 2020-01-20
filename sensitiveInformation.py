@@ -38,11 +38,8 @@ class Patient:
     # Address should have a getter and setter.
     @property
     def address(self):
-        try:
-            return self.__address
-        except AttributeError: 
-            return TypeError("This is not an address")
-    
+        return self.__address
+
     @address.setter
     def address(self, address):
         if type(address) is str:
@@ -53,7 +50,6 @@ class Patient:
     def __str__(self):
         return f"{self.full_name} was born on {self.date_of_birth}. Her social security number is {self.social_security_number}, her insurance number is {self.health_insurance_account_number}, and her address is {self.address}."
 
-Caroline = Patient("Caroline", "Brownlee", "104 Doral Lane, Hendersonville, TN 37075", "Sept. 2, 1978", "555-555-5555", "IW55555")
+Caroline = Patient("Caroline", "Brownlee", "104 Doral Ln", "Sept. 2, 1978", "555-555-5555", "IW55555")
 
 print(Caroline)
-
