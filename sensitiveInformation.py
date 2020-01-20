@@ -10,8 +10,8 @@
 class Patient:
 
     def __init__(self, first_name, last_name, address, date_of_birth, social_security_number, health_insurance_account_number):
-        self.first_name = first_name
-        self.last_name = last_name
+        self.__first_name = first_name
+        self.__last_name = last_name
         self.__address = address
         self.__date_of_birth = date_of_birth
         self.__health_insurance_account_number = health_insurance_account_number
@@ -37,12 +37,12 @@ class Patient:
         try:
             return self.__health_insurance_account_number
         except AttributeError:
-            return "No Social Security Number"
+            return "Property Can't Be Changed"
 
     # First name and last name should not be exposed as properties at all, but instead expose a calculated property of full_name.
     @property
     def full_name(self):
-        return f"{self.first_name} {self.last_name}"
+        return f"{self.__first_name} {self.__last_name}"
 
     # Address should have a getter and setter.
     @property
@@ -66,15 +66,3 @@ Caroline = Patient("Caroline", "Brownlee", "104 Doral Ln, Hendersonville, TN 370
 
 print(Caroline)
 
-print(Caroline.date_of_birth)
-
-# this should output nothing but does...need to fix...everything else works
-print(Caroline.first_name)
-print(Caroline.full_name)
-
-# # These two statements should output nothing
-# print(cashew.first_name)
-# print(cashew.last_name)
-
-# # But this should output the full name
-# print(cashew.full_name)   # "Daniela Agnoletti"
